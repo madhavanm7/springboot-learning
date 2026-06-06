@@ -5,6 +5,8 @@ import com.springboot.app.springbootbackend.repository.EmployeeRepository;
 import com.springboot.app.springbootbackend.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceimpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
@@ -16,5 +18,9 @@ public class EmployeeServiceimpl implements EmployeeService {
     @Override
     public Employee saveEmployee(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    public List<Employee> getAllEmployees(){
+        return employeeRepository.findAll();
     }
 }
