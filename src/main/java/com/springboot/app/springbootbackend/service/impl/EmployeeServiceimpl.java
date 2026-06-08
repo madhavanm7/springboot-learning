@@ -1,9 +1,11 @@
 package com.springboot.app.springbootbackend.service.impl;
 
+import com.springboot.app.springbootbackend.exception.ResourceNotFoundException;
 import com.springboot.app.springbootbackend.model.Employee;
 import com.springboot.app.springbootbackend.repository.EmployeeRepository;
 import com.springboot.app.springbootbackend.service.EmployeeService;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -22,5 +24,10 @@ public class EmployeeServiceimpl implements EmployeeService {
 
     public List<Employee> getAllEmployees(){
         return employeeRepository.findAll();
+    }
+
+
+    public Employee getEmployeeById(long id){
+        return employeeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Employee", "Id", id));
     }
 }
