@@ -9,10 +9,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@RestController Tells Spring:
+//"This class contains REST APIs."
 @RestController
+
 @RequestMapping("/api/employees")
 public class EmployeeController {
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
 
     public EmployeeController(EmployeeService employeeService) {
         super();

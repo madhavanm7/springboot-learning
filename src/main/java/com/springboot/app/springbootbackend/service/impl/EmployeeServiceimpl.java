@@ -19,10 +19,12 @@ public class EmployeeServiceimpl implements EmployeeService {
 
     @Override
     public Employee saveEmployee(Employee employee) {
+
         return employeeRepository.save(employee);
     }
 
     public List<Employee> getAllEmployees(){
+
         return employeeRepository.findAll();
     }
 
