@@ -14,7 +14,7 @@ public class EmpSalary {
     @Column(name = "salary", nullable = false)
     private long salary;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
